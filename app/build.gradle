@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -15,11 +16,19 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        config {
+            storeFile file('/Users/Mecenlee/Mecenlee.jks')
+            storePassword '594946'
+            keyAlias = 'Mecenleedev'
+            keyPassword '594946'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {
@@ -37,7 +46,19 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
 }

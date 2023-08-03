@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.lmc.volcanoweather">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".VolcanoWeatherApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,6 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VolcanoWeather"
         tools:targetApi="31">
+        <activity android:name=".ui.weather.WeatherActivity"
+            tools:ignore="MissingClass" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
